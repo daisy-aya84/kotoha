@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kotoha</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to("Kotoha","/") %>
+    <%= link_to("about","/about") %>
+    <%= link_to("投稿一覧", "/post/index") %>
+    <%= link_to("ユーザー一覧", "/user/index") %>
+    <%= link_to("新規登録", "/signup") %>
+    <%= yield %>
+  </body>
+</html>

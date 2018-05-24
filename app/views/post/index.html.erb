@@ -1,0 +1,9 @@
+<%= form_tag("/post/create") do%>
+    <textarea name="content"></textarea>
+    <input type="submit" value="投稿する">
+<% end %>
+
+<% @posts.each do |post| %>
+    <%= post.content %>
+    <%= link_to("削除する","/post/#{post.id}/destroy",{method: "post"})%>
+<% end%>
