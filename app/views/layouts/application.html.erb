@@ -9,14 +9,20 @@
   </head>
 
   <body>
-    <%= link_to("Kotoha","/") %>
+    
+    
+    <% if @current_user %>
+      <%= link_to("Kotoha", "/post/index") %>
+    <% else %>
+       <%= link_to("Kotoha", "/") %>
+    <% end %>
+    
     <%= link_to("about","/about") %>
     
-    <% current_user = User.find_by(id: session[:user_id])%>
     
-    <% if current_user %>
+    <% if @current_user %>
       <li>
-        <%= link_to(current_user.name, "/user/#{current_user.id}/show") %>
+        <%= link_to(@current_user.name, "/user/#{@current_user.id}/show") %>
       </li>
       <li>
         <%= link_to("投稿一覧", "/post/index") %>
@@ -34,9 +40,17 @@
     <% else%>
       <li>
         <%= link_to("新規登録", "/signup") %>
-        <%= link_to("ログイン", "/login")%>
       </li>
-      
+      <li>
+        <%= link_to("ログイン", "/login")%> 
+      </li>
+       
+    <% end %>
+    
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
     <% end %>
         
     <%= yield %>
