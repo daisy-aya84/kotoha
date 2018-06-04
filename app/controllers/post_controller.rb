@@ -29,10 +29,11 @@ class PostController < ApplicationController
   end
   
   def encure_correct_user
-  #   if @current_user.id != @post.user_id
-  #     flash[:notice] = "権限がありません"
-  #     redirect_to("/post/index")
-  #   end
+    @post = Post.find_by(id: params[:id])
+    if @current_user.id != @post.user_id
+      flash[:notice] = "権限がありません"
+      redirect_to("/post/index")
+    end
   end
   
 end
