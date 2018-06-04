@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   post "/user/create" => "user#create"
 
   get "post/index" => "post#index"
-  post "post/:id/destroy" => "post#destroy"
-  get "posts/new" => "post#new"
+  post "/post/:id/destroy" => "post#destroy"
+  get "post/new" => "post#new"
+  get "post/:id" => "post#show"
 
   post "post/create" => "post#create"
 
